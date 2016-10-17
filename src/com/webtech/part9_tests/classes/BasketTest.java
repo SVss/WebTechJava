@@ -32,9 +32,7 @@ public class BasketTest {
 		
 		Ball expectedResult = ball;
 		Ball actualResult = basket.getAllBalls()[0];
-		
-		ball = null;
-		
+
 		assertEquals(expectedResult, actualResult);
 	}
 
@@ -44,6 +42,14 @@ public class BasketTest {
 		basket.addBall(ball);
 		
 		Ball[] expectedResult = new Ball[] { ball };
+		Ball[] actualResult = basket.getAllBalls();
+		
+		assertArrayEquals(expectedResult, actualResult);
+	}
+	
+	@Test
+	public void testGetAllBallsEmpty() {
+		Ball[] expectedResult = new Ball[] { };
 		Ball[] actualResult = basket.getAllBalls();
 		
 		assertArrayEquals(expectedResult, actualResult);
@@ -61,5 +67,12 @@ public class BasketTest {
 		double actualResult = basket.getWeight();
 		assertEquals(expectedResult, actualResult, EPS);
 	}
-
+	
+	@Test
+	public void testGetWeightEmpty() {
+		double expectedResult = 0;
+		double actualResult = basket.getWeight();
+		assertEquals(expectedResult, actualResult, EPS);
+	}
+	
 }
