@@ -1,4 +1,4 @@
-package com.webtech.part1.tests;
+package com.webtech.part1_tests;
 
 import java.util.ArrayList;
 

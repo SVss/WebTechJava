@@ -1,4 +1,4 @@
-package com.webtech.part3.tests;
+package com.webtech.part3_tests;
 
 import static org.junit.Assert.*;
 
