@@ -1,4 +1,4 @@
-package com.webtech.part9.classes_tests;
+package com.webtech.part9_tests.classes;
 
 import static org.junit.Assert.*;
 
