@@ -1,5 +1,6 @@
 package com.webtech.part9.classes;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 public class Basket {
@@ -23,5 +24,15 @@ public class Basket {
 	
 	public void throwBallsAway() {
 		ballsArrayList.clear();
+	}
+	
+	public int countBallsWithColor(Color color) {
+		int result = 0;
+		for (Ball ball : ballsArrayList) {
+			if (ball.getColor() == color) {
+				++result;
+			}
+		}
+		return result;
 	}
 }

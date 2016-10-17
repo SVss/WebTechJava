@@ -20,7 +20,7 @@ public class BasketTest {
 	private Basket basket = new Basket();
 	private Random rand = new Random();
 	
-	@After
+	@After	// clear basket after each test
 	public void resetBasket() {
 		basket.throwBallsAway();
 	}
@@ -73,6 +73,42 @@ public class BasketTest {
 		double expectedResult = 0;
 		double actualResult = basket.getWeight();
 		assertEquals(expectedResult, actualResult, EPS);
+	}
+	
+	@Test
+	public void testCountBallsWithColor() {
+		basket.addBall(new Ball(3, Color.black));
+		basket.addBall(new Ball(3, Color.white));
+		basket.addBall(new Ball(3, Color.red));
+		basket.addBall(new Ball(3, Color.orange));
+		basket.addBall(new Ball(3, Color.red));
+		
+		int expectedResult = 2;
+		int actualResult = basket.countBallsWithColor(Color.red);
+		
+		assertEquals(expectedResult, actualResult);
+	}
+	
+	@Test
+	public void testCountBallsWithColorNone() {
+		basket.addBall(new Ball(3, Color.black));
+		basket.addBall(new Ball(3, Color.white));
+		basket.addBall(new Ball(3, Color.red));
+		basket.addBall(new Ball(3, Color.orange));
+		basket.addBall(new Ball(3, Color.red));
+		
+		int expectedResult = 0;
+		int actualResult = basket.countBallsWithColor(Color.blue);
+		
+		assertEquals(expectedResult, actualResult);
+	}
+	
+	@Test
+	public void testCountBallsWithColorEmpty() {
+		int expectedResult = 0;
+		int actualResult = basket.countBallsWithColor(Color.green);
+		
+		assertEquals(expectedResult, actualResult);
 	}
 	
 }
