@@ -1,10 +1,10 @@
-package com.svss.webtech.lw_1.Book_tests;
+package com.svss.webtech.lw_1.part12.Book_tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.svss.webtech.lw_1.Book.ProgrammerBook;
+import com.svss.webtech.lw_1.part12.Book.ProgrammerBook;
 
 public class ProgrammerBookTest {
 
