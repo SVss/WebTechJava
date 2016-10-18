@@ -1,5 +1,7 @@
 package com.svss.webtech.lw_1.Book;
 
+import java.util.Comparator;
+
 public class Book implements Cloneable, Comparable<Book> {
 	protected String title;
 	protected String author;
@@ -61,4 +63,56 @@ public class Book implements Cloneable, Comparable<Book> {
 		return isbn.compareTo(arg0.isbn);
 	}
 	
+	// Comparators
+	
+	public static class NameComparator implements Comparator<Book>{
+
+		@Override
+		public int compare(Book arg0, Book arg1) {
+			return arg0.title.compareTo(arg1.title);
+		}
+		
+	}
+	
+	public static class NameAuthorComparator implements Comparator<Book>{
+
+		@Override
+		public int compare(Book arg0, Book arg1) {
+			int result = arg0.title.compareTo(arg1.title);
+			if (result == 0) {
+				result = arg0.author.compareTo(arg1.author);
+			}
+			return result;
+		}
+		
+	}
+	
+	public static class AuthorNameComparator implements Comparator<Book>{
+
+		@Override
+		public int compare(Book arg0, Book arg1) {
+			int result = arg0.author.compareTo(arg1.author);
+			if (result == 0) {
+				result = arg0.title.compareTo(arg1.title);
+			}
+			return result;
+		}
+		
+	}
+	
+	public static class AuthorNamePriceComparator implements Comparator<Book>{
+
+		@Override
+		public int compare(Book arg0, Book arg1) {
+			int result = arg0.author.compareTo(arg1.author);
+			if (result == 0) {
+				result = arg0.title.compareTo(arg1.title);
+				if (result == 0) {
+					result = (arg0.price - arg1.price);
+				}
+			}
+			return result;
+		}
+		
+	}
 }
