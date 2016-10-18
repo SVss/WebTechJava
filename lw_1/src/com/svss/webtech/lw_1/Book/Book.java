@@ -1,6 +1,6 @@
 package com.svss.webtech.lw_1.Book;
 
-public class Book implements Cloneable {
+public class Book implements Cloneable, Comparable<Book> {
 	protected String title;
 	protected String author;
 	protected int price;
@@ -56,4 +56,9 @@ public class Book implements Cloneable {
 		return result;
 	}
 
+	@Override
+	public int compareTo(Book arg0) {
+		return isbn.compareTo(arg0.isbn);
+	}
+	
 }
