@@ -9,6 +9,11 @@ public class Task5 {
 	 */
 	public static int getMaxSubsequenceLength(int[] arr) {
 		int lng = arr.length;
+		
+		if (lng == 0) {
+			return 0;
+		}
+		
 		int[] subseqLng = new int[lng];
 		
 		for (int i = 1; i < lng; ++i) {
