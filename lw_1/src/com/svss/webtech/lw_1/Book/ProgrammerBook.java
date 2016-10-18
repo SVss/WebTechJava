@@ -4,6 +4,13 @@ public class ProgrammerBook extends Book {
 	private String language;
 	private int level;
 	
+	public ProgrammerBook(String title, String author, int price, String language, int level) {
+		super(title, author, price);
+		
+		this.language = language;
+		this.level = level;
+	}
+
 	public boolean equals(Object obj) {
 		if (obj == null) return false;
 		if (this == obj) return true;
@@ -28,5 +35,14 @@ public class ProgrammerBook extends Book {
 				+ "\"" + String.format(" price=\"%d\" edition=\"%d\"", price, edition)
 				+ " language=\"" + language
 				+"\"" + String.format(" level=\"%d\"", level); 
+	}
+	
+	public Object clone() throws CloneNotSupportedException {
+		ProgrammerBook result = (ProgrammerBook)super.clone();
+		
+		result.language = language;
+		result.level = level;
+		
+		return result;
 	}
 }

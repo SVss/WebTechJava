@@ -1,11 +1,17 @@
 package com.svss.webtech.lw_1.Book;
 
-public class Book {
+public class Book implements Cloneable{
 	protected String title;
 	protected String author;
 	protected int price;
 	protected static int edition;
 	
+	public Book(String title, String author, int price) {
+		this.title = title;
+		this.author = author;
+		this.price = price;
+	}
+
 	public boolean equals(Object obj) {
 		if (obj == null) return false;
 		if (this == obj) return true;
@@ -29,5 +35,15 @@ public class Book {
 		return "Book: title=\""+ title
 				+ "\" author=\"" + author
 				+ "\"" + String.format(" price=\"%d\" edition=\"%d\"", price, edition); 
+	}
+	
+	public Object clone() throws CloneNotSupportedException {
+		Book result = (Book) super.clone();
+		
+		result.title = title;
+		result.author = author;
+		result.price = price;
+		
+		return result;
 	}
 }
